@@ -21,7 +21,7 @@ public class CriarRebeldeController {
     private CriarRebeldeService criarRebeldeService;
 
     @ApiOperation(value = "Salvar um novo rebelde")
-    @PostMapping
+    @PostMapping("/v1/rebeldes")
     public ResponseEntity<?> salvarRebelde(@RequestBody @Valid RebeldeRequest rebeldeRequest) {
         Rebelde rebelde = criarRebeldeService.salvarRebelde(RebeldeMapper.INSTANCE.rebeldeRequestToRebeldeEntity(rebeldeRequest));
 

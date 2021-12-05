@@ -14,7 +14,7 @@ public class ListarRebeldeController {
     private ListarRebeldeService listarRebeldeService;
 
     @ApiOperation(value = "Listar todos rebeldes")
-    @GetMapping
+    @GetMapping("/v1/rebeldes")
     public ResponseEntity<?> listarRebeldes() {
         return ResponseEntity.ok(RebeldeMapper.INSTANCE.rebeldeEntityToRebeldeResponse(listarRebeldeService.listarRebeldes()));
     }
