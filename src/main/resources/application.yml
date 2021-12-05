@@ -1,0 +1,21 @@
+server:
+  port: 8080
+  context-path: /api
+
+application:
+  name: starwars
+  title: Stawars API
+  description: API to manage rebelds
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb
+    username: sa
+    password:
+  jpa:
+    show-sql: true
+    hibernate:
+      format_sql: false
+      hbm2ddl:
+        auto: drop-and-create
+      ddl-auto: drop-and-create
