@@ -15,6 +15,7 @@ public interface RebeldeMapper {
     RebeldeMapper INSTANCE = Mappers.getMapper(RebeldeMapper.class);
 
     Rebelde rebeldeRequestToRebeldeEntity(RebeldeRequest createRebeldeRequest);
+    RebeldeResponse rebeldeEntityToRebeldeResponse(Rebelde rebelde);
     List<RebeldeResponse> rebeldeEntityToRebeldeResponse(List<Rebelde> rebeldes);
     Localizacao localizacaoRequestToLocalizacaoEntity(LocalizacaoRequest localizacaoRequest);
 }
