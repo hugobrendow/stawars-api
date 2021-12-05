@@ -1,14 +1,14 @@
-package br.com.hugobrendow.starwars.dto.request;
+package br.com.hugobrendow.starwars.dto.response;
 
 import br.com.hugobrendow.starwars.model.Genero;
 import lombok.Data;
 
 @Data
-public class CriarRebeldeRequest {
+public class RebeldeResponse {
     private String nome;
     private Integer idade;
     private Genero genero;
     private Integer acusacoes = 0;
-    private LocalizacaoRequest localizacao;
-    private InventarioRequest inventario;
+    private LocalizacaoResponse localizacao;
+    private InventarioResponse inventario;
 }

@@ -1,6 +1,6 @@
 package br.com.hugobrendow.starwars.controller;
 
-import br.com.hugobrendow.starwars.dto.request.CriarRebeldeRequest;
+import br.com.hugobrendow.starwars.dto.request.RebeldeRequest;
 import br.com.hugobrendow.starwars.mapper.RebeldeMapper;
 import br.com.hugobrendow.starwars.model.Rebelde;
 import br.com.hugobrendow.starwars.service.CriarRebeldeService;
@@ -22,7 +22,7 @@ public class CriarRebeldeController {
 
     @ApiOperation(value = "Salvar um novo rebelde")
     @PostMapping
-    public ResponseEntity<?> salvarRebelde(@RequestBody @Valid CriarRebeldeRequest rebeldeRequest) {
+    public ResponseEntity<?> salvarRebelde(@RequestBody @Valid RebeldeRequest rebeldeRequest) {
         Rebelde rebelde = criarRebeldeService.salvarRebelde(RebeldeMapper.INSTANCE.rebeldeRequestToRebeldeEntity(rebeldeRequest));
 
         URI uri = ServletUriComponentsBuilder.fromCurrentRequestUri().path("/{id}").buildAndExpand(rebelde.getId().toString()).toUri();
