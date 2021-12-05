@@ -10,6 +10,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
 
@@ -23,5 +24,5 @@ public class Inventario {
     private UUID id;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private List<ItemInventario> itens;
+    private List<ItemInventario> itens = Collections.emptyList();
 }
