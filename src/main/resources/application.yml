@@ -5,7 +5,7 @@ server:
 application:
   name: starwars
   title: Stawars API
-  description: API to manage rebelds
+  description: API to manage rebels
 
 spring:
   datasource:
