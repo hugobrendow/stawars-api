@@ -4,6 +4,7 @@ import br.com.hugobrendow.starwars.dto.request.negocio.NegocioRequest;
 import br.com.hugobrendow.starwars.exception.InventarioVazioException;
 import br.com.hugobrendow.starwars.exception.ItemInvalidoException;
 import br.com.hugobrendow.starwars.exception.RebeldeBloqueadoTransacionarException;
+import br.com.hugobrendow.starwars.exception.RebeldeNaoEncontradoException;
 import br.com.hugobrendow.starwars.exception.ValoresInvalidosException;
 import br.com.hugobrendow.starwars.model.ItemInventario;
 import br.com.hugobrendow.starwars.model.Rebelde;
@@ -20,8 +21,8 @@ public class NegocioItensService {
     private RebeldeRepository rebeldeRepository;
 
     public void negociarItens(NegocioRequest negocioRequest) {
-        Rebelde negociante = rebeldeRepository.findById(negocioRequest.getRebeldeNegociante().getId()).orElseThrow(() -> new IllegalArgumentException());
-        Rebelde negociador = rebeldeRepository.findById(negocioRequest.getRebeldeNegociador().getId()).orElseThrow(() -> new IllegalArgumentException());
+        Rebelde negociante = rebeldeRepository.findById(negocioRequest.getRebeldeNegociante().getId()).orElseThrow(() -> new RebeldeNaoEncontradoException());
+        Rebelde negociador = rebeldeRepository.findById(negocioRequest.getRebeldeNegociador().getId()).orElseThrow(() -> new RebeldeNaoEncontradoException());
 
         List<ItemInventario> itensNegociador = negocioRequest.getRebeldeNegociador().getItens();
         List<ItemInventario> itensNegociante = negocioRequest.getRebeldeNegociante().getItens();

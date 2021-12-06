@@ -7,7 +7,6 @@ import br.com.hugobrendow.starwars.model.Localizacao;
 import br.com.hugobrendow.starwars.model.Rebelde;
 import br.com.hugobrendow.starwars.repository.ItemRepository;
 import br.com.hugobrendow.starwars.repository.RebeldeRepository;
-import org.apache.tomcat.jni.Local;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
