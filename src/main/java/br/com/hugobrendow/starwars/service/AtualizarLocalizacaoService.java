@@ -1,5 +1,6 @@
 package br.com.hugobrendow.starwars.service;
 
+import br.com.hugobrendow.starwars.exception.RebeldeNaoEncontradoException;
 import br.com.hugobrendow.starwars.model.Localizacao;
 import br.com.hugobrendow.starwars.model.Rebelde;
 import br.com.hugobrendow.starwars.repository.RebeldeRepository;
@@ -14,7 +15,7 @@ public class AtualizarLocalizacaoService {
     private RebeldeRepository rebeldeRepository;
 
     public Rebelde atualizarLocalizacao(UUID id, Localizacao localizacao) {
-        Rebelde rebelde = rebeldeRepository.findById(id).orElseThrow(() -> new IllegalArgumentException());
+        Rebelde rebelde = rebeldeRepository.findById(id).orElseThrow(() -> new RebeldeNaoEncontradoException());
         rebelde.setLocalizacao(localizacao);
         return rebeldeRepository.save(rebelde);
     }
