@@ -48,6 +48,14 @@ public class BaseServiceTest {
         return localizacao;
     }
 
+    protected Localizacao getLocalizacaoAlterada() {
+        Localizacao localizacao = new Localizacao();
+        localizacao.setBase("Base Test Alterada");
+        localizacao.setLatitude("1235");
+        localizacao.setLongitude("213125");
+        return localizacao;
+    }
+
     protected Item getItem() {
         Item item = new Item();
         item.setId(UUID.fromString("340aff20-563a-11ec-bf63-0242ac130002"));
