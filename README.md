@@ -9,13 +9,16 @@
  - [X] JUnit
  - [X] Docker
  - [X] Docker Compose
-
+ - [X] Banco de dados H2 (em memória)
+ 
 ***
 ## Documentação
 
 ### Demonstração do uso do endpoint
 
  - Obs: Os endpoints podem ser utilizados no serviço do Swagger da seguinte URL: http://localhost:8080/swagger-ui.html
+ - O serviço do Swagger conta com um modo fácil de utilização dos endpoints, tornando mais simples a execução.
+ - Para os identificadores de objetos foi utilizado o padrão de UUID, pois é um identificador universal.
 
 #### POST 
 - Endpoint: /api/v1/rebeldes
@@ -56,3 +59,13 @@ docker-compose up -d
 Após concluir validar se o container estará disponível no endereço: http://localhost:8080/swagger-ui.html
 
 ***
+
+### Execução de testes
+
+Foi utilizado testes unitários com JUNIT, realizando testes em cada funcionalidade da aplicação.
+
+Para execução, deve utilizar o seguinte comando:
+
+```
+mvn test
+```
