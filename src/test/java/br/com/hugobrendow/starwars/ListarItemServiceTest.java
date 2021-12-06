@@ -2,8 +2,8 @@ package br.com.hugobrendow.starwars;
 
 import br.com.hugobrendow.starwars.model.Item;
 import br.com.hugobrendow.starwars.service.ListarItemService;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Before;
+import org.junit.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -16,7 +16,7 @@ public class ListarItemServiceTest extends BaseServiceTest {
     @Autowired
     private ListarItemService listarItemService;
 
-    @BeforeEach
+    @Before
     public void setup() {
         Mockito.when(itemRepository.findAll()).thenReturn(Arrays.asList(getItem()));
     }

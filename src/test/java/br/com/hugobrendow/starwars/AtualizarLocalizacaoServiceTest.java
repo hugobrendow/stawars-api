@@ -3,8 +3,8 @@ package br.com.hugobrendow.starwars;
 import br.com.hugobrendow.starwars.exception.RebeldeNaoEncontradoException;
 import br.com.hugobrendow.starwars.model.Rebelde;
 import br.com.hugobrendow.starwars.service.AtualizarLocalizacaoService;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Before;
+import org.junit.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -18,7 +18,7 @@ public class AtualizarLocalizacaoServiceTest extends BaseServiceTest {
     @Autowired
     private AtualizarLocalizacaoService atualizarLocalizacaoService;
 
-    @BeforeEach
+    @Before
     public void setup() {
         Rebelde rebelde = getRebelde();
         rebelde.setLocalizacao(getLocalizacaoAlterada());

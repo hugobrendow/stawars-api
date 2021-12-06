@@ -3,8 +3,8 @@ package br.com.hugobrendow.starwars;
 import br.com.hugobrendow.starwars.exception.RebeldeNaoEncontradoException;
 import br.com.hugobrendow.starwars.model.Rebelde;
 import br.com.hugobrendow.starwars.service.ReportarRebeldeService;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Before;
+import org.junit.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -18,7 +18,7 @@ public class ReportarRebeldeServiceTest extends BaseServiceTest {
     @Autowired
     private ReportarRebeldeService reportarRebeldeService;
 
-    @BeforeEach
+    @Before
     public void setup() {
         Mockito.when(rebeldeRepository.findById(UUID.fromString("583ed93c-5637-11ec-bf63-0242ac130002"))).thenReturn(Optional.of(getRebelde()));
         Rebelde rebelde = getRebelde();

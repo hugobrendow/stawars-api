@@ -2,8 +2,8 @@ package br.com.hugobrendow.starwars;
 
 import br.com.hugobrendow.starwars.model.Item;
 import br.com.hugobrendow.starwars.service.CriarItemService;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Before;
+import org.junit.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -15,7 +15,7 @@ public class CriarItemServiceTest extends BaseServiceTest {
     @Autowired
     private CriarItemService criarItemService;
 
-    @BeforeEach
+    @Before
     public void setup() {
         Mockito.when(itemRepository.save(Mockito.any())).thenReturn(getItem());
     }

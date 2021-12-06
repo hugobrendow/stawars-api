@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
@@ -37,10 +38,13 @@ public class NegocioItensService {
 
     private void substituirItens(Rebelde rebelde, List<ItemInventario> itensRecebidos, List<ItemInventario> itensDoados) {
         List<ItemInventario> itensRebelde = rebelde.getInventario().getItens();
-        itensRebelde.removeIf(item -> itensRecebidos.stream().anyMatch(itemVendido -> item.getItem().getId().equals(itemVendido.getItem().getId())));
 
-        itensRebelde.addAll(itensDoados);
-        rebelde.getInventario().setItens(itensRebelde);
+        // itensRebelde.removeIf(item -> itensRecebidos.stream().anyMatch(itemVendido -> item.getItem().getId().equals(itemVendido.getItem().getId())));
+
+        List<ItemInventario> itensParaSalvar = itensRebelde.stream().filter(item -> itensDoados.stream().noneMatch(itemDoado -> itemDoado.getItem().getId().equals(item.getItem().getId()))).collect(Collectors.toList());
+
+        itensParaSalvar.addAll(itensRecebidos);
+        rebelde.getInventario().setItens(itensParaSalvar);
         rebeldeRepository.save(rebelde);
     }
 
@@ -85,7 +89,7 @@ public class NegocioItensService {
                 .stream().map(item -> item.getQuantidade() * item.getItem().getPontos())
                 .reduce(0, (subtotal, valorIndex) -> subtotal + valorIndex);
 
-        if (pontosNegociador != pontosNegociante) {
+        if (pontosNegociador.compareTo(pontosNegociante) != 0) {
             throw new ValoresInvalidosException();
         }
     }

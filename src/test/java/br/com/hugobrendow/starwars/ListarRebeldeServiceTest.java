@@ -2,8 +2,8 @@ package br.com.hugobrendow.starwars;
 
 import br.com.hugobrendow.starwars.model.Rebelde;
 import br.com.hugobrendow.starwars.service.ListarRebeldeService;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Before;
+import org.junit.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -16,7 +16,7 @@ public class ListarRebeldeServiceTest extends BaseServiceTest {
     @Autowired
     private ListarRebeldeService listarRebeldeService;
 
-    @BeforeEach
+    @Before
     public void setup() {
         Mockito.when(rebeldeRepository.findAll()).thenReturn(Arrays.asList(getRebelde()));
     }
